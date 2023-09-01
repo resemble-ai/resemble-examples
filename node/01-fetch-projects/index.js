@@ -11,10 +11,7 @@ if (!apiKey) {
   process.exit(1);
 }
 
-console.log(Resemble) 
-
 const setupResembleAI = (apiKey) => {
-	// TODO
 	console.log("Setting Resemble API Key...")
 	Resemble.Resemble.setApiKey(apiKey)
 }
