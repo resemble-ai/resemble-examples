@@ -25,10 +25,12 @@ function App() {
 
       const response = await fetch(resembleDirectSynEndpoint, {
         method: 'POST',
-				mode: 'no-cors', // Set request mode to 'no-cors'
+				mode: 'cors', // Set request mode to 'no-cors'
         headers: {
-          'Content-Type': 'application/json',
+					"Content-Type": "application/json",
           'Authorization': `Bearer ${resembleApiKey}`,
+					'Accept-Encoding': "gzip, deflate, br",
+					'Access-Control-Allow-Origin': '*'
         },
         body: JSON.stringify({
           text: `Hello, ${name}!`, // Customize the text here
