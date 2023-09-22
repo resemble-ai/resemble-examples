@@ -2,17 +2,17 @@ require 'json'
 require 'resemble'
 require 'pry'
 
-# Make sure you set an environment variable for the RESEMBLE_API_TOKEN, 
+# Make sure you set an environment variable for the RESEMBLE_API_KEY, 
 # it will be used to initialize the Resemble SDK.
-RESEMBLE_API_TOKEN = ENV['RESEMBLE_API_TOKEN'] 
+RESEMBLE_API_KEY = ENV['RESEMBLE_API_KEY'] 
 
-raise StandardError.new("Please set the RESEMBLE_API_KEY environment variable.") if RESEMBLE_API_TOKEN.nil? || RESEMBLE_API_TOKEN.empty?
+raise StandardError.new("Please set the RESEMBLE_API_KEY environment variable.") if RESEMBLE_API_KEY.nil? || RESEMBLE_API_KEY.empty?
 
 # Set the API Key for the SDK
-Resemble.api_key = RESEMBLE_API_TOKEN
+Resemble.api_key = RESEMBLE_API_KEY
 
 # Here we are choosing what we want to name our voice
-voice_name = "Your Voice Clone"
+voice_name = "My Voice Clone"
 
 # The dataset is important, is the data that will be used to train our voice. 
 # There are two ways to create and train a voice 
