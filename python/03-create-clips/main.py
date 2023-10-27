@@ -21,8 +21,6 @@ def create_audio_clip(
         is_public: bool = False, 
         is_archived: bool = False): 
 
-    pass
-
     print(f"Submitting request to Resemble to create audio clip content: {body}")
 
     # Make request to the API, note that we do not provide a callback_uri so this 
