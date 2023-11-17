@@ -24,8 +24,6 @@ RESEMBLE_API_KEY=... node index.js <path/to/csv>
 # Imported phoneme pair: cosmic and kozmik
 #
 # Completed
-# Successfully imported phonemes: 2
-# Failed to import phonemes: 0
 ```
 
 ### Arguments
