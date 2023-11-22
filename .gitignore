@@ -3,3 +3,5 @@ node_modules
 venv
 other/
 example.csv
+.DS_Store
+example-data/
