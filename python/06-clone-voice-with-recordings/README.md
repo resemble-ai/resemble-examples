@@ -34,7 +34,7 @@ source venv/bin/activate
 # Install dependencies
 pip install -r requirements.txt
 ```
-- Run the server and provide your API key as an input environment variable:
+- Run the program and provide your API key as an input environment variable:
 ```
 # FIXME:
 RESEMBLE_API_KEY=... python main.py --name <name> --recordings path/to/folder
