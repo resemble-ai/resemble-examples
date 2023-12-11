@@ -94,12 +94,11 @@ async function createVoice(voiceName) {
   console.log(`Submitting request to Resemble to create a voice: ${voiceName}`);
 
   try {
-    // Make a request to the API, note that we do not provide a callback_uri so this
-    // request will execute synchronously.
     //   Make request to the API, note that we do not provide a callback_uri so this 
     //   will request will execute synchronously.
     //  
-    //   This will trigger the voice creation process but not the voice building process# we need to trigger that through the voice building API 
+    //   This will trigger the voice creation process but not the voice building process
+    //   we need to trigger that through the voice building API 
     //  
     //   https://docs.app.resemble.ai/docs/resource_voice/build/
     //  
@@ -138,7 +137,6 @@ async function createVoice(voiceName) {
 
 async function triggerVoiceBuild(voiceUuid) {
     let response = await Resemble.Resemble.v2.voices.build(voiceUuid)
-
 
     if (response.success) {
         console.log(`Request to initiate voice build for voice ${voice_uuid} was successful!`)
