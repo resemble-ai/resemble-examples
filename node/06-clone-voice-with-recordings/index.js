@@ -103,15 +103,24 @@ async function createVoice(voiceName) {
     //  
     //   https://docs.app.resemble.ai/docs/resource_voice/build/
     //  
-    //   
-    //   FIXME: note that all voices require a consent file 
-    //          to be attached for trust and security purpose 
-    //          make sure you attach your consent in based64 
-    //          format: 
-    //  
-    //          https://docs.app.resemble.ai/docs/resource_voice/create#voice-consent
-    //  
-    const response = await Resemble.Resemble.v2.voices.create({ name: voiceName, consent: "FIXME"});
+    // 
+
+    let base64Conset = '';
+
+    // In order to clone a voice, you MUST provide a base64 encoded consent file 
+    //
+    // https://docs.app.resemble.ai/docs/resource_voice/create#voice-consent
+    //
+    // FIXME: You will need update this function to the path to your consent file
+    const fileContents = fs.readFileSync('FIXME: path/to/consent file', 'binary');
+
+    base64Conset = Buffer.from(fileContents).toString('base64')
+
+    console.log(`Submitting request to Resemble to create a voice: ${voiceName}`);
+
+    // Make a request to the API, note that we do not provide a callback_uri so this
+    // request will execute synchronously.
+    const response = await Resemble.Resemble.v2.voices.create({ name: voiceName, consent: base64Conset });
 
     const voice = response.item;
 

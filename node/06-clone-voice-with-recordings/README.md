@@ -23,6 +23,7 @@ example-data/
 ## Usage
 - Clone the repository
 - Install dependencies via `yarn`
+- Update the consent file path as needed
 - Run the program 
 ```
  RESEMBLE_API_KEY=... node index.js <voice-name-goes-here> <path-to-recording-folder-goes-here> 
