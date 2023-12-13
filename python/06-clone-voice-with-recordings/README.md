@@ -34,6 +34,7 @@ source venv/bin/activate
 # Install dependencies
 pip install -r requirements.txt
 ```
+- Update the consent file as needed
 - Run the program and provide your API key as an input environment variable:
 ```
 # FIXME:
