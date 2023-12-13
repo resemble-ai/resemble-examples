@@ -5,6 +5,8 @@ This is a repository that provides a basic example of using the `@resemble/node`
 ## Usage
 - Clone the repository
 - Install dependencies via `yarn`
+- Update the consent file path as needed
+- Update the `dataset_url` path as needed
 - Run the program 
 ```
 RESEMBLE_API_KEY=... yarn start

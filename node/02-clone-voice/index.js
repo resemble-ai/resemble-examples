@@ -1,4 +1,5 @@
 import * as Resemble from "@resemble/node"
+import fs from 'fs';
 
 const apiKey = process.env.RESEMBLE_API_KEY;
 
@@ -33,12 +34,23 @@ async function createVoice() {
   //
   const dataset = 'FIXME: Adds your dataseturl here';
 
+  let base64Conset = '';
+
+  // In order to clone a voice, you MUST provide a base64 encoded consent file 
+  //
+  // https://docs.app.resemble.ai/docs/resource_voice/create#voice-consent
+  //
+  // FIXME: You will need update this function to the path to your consent file
+  const fileContents = fs.readFileSync('FIXME: path/to/consent file', 'binary');
+
+  base64Conset = Buffer.from(fileContents).toString('base64')
+
   console.log(`Submitting request to Resemble to create a voice: ${voiceName}`);
 
   try {
     // Make a request to the API, note that we do not provide a callback_uri so this
     // request will execute synchronously.
-    const response = await Resemble.Resemble.v2.voices.create({ name: voiceName, dataset_url: dataset });
+    const response = await Resemble.Resemble.v2.voices.create({ name: voiceName, dataset_url: dataset, consent: base64Conset });
 
     const voice = response.item;
 

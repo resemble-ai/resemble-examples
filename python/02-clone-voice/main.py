@@ -1,5 +1,6 @@
 from resemble import Resemble
 import os
+import base64
 
 # This function sets up the Resemble Python SDK
 def initialize_resemble_client(): 
@@ -29,12 +30,29 @@ def create_voice():
     # FIXME: You will need to change this to a url which points to your dataset as a zip file.
     #
     dataset = 'FIXME: add your dataset URL here!'
+    base64_consent = ''
+
+    # In order to clone a voice, you MUST provide a base64 encoded consent file 
+    #
+    # https://docs.app.resemble.ai/docs/resource_voice/create#voice-consent
+    #
+    # FIXME: You will need update this function to the path to your consent file
+    with open('FIXME: path/to/consent/file', 'rb') as file:
+        file_contents = file.read()
+
+        # Encode the file contents as Base64
+        base64_consent = base64.b64encode(file_contents).decode('utf-8')
+
 
     print(f"Submitting request to Resemble to create a voice: {voice_name}")
 
     # Make request to the API, note that we do not provide a callback_uri so this 
     # will request will execute synchronously.
-    response = Resemble.v2.voices.create(voice_name, dataset_url=dataset)
+    response = Resemble.v2.voices.create(
+            voice_name, 
+            dataset_url=dataset, 
+            consent=base64_consent
+    )
 
     voice = response['item']
 

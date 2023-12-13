@@ -1,4 +1,4 @@
-# 01. Create Voice
+# 02. Create Voice
 
 This is a repository that provides a basic example of using the `resemble` SDK to fetch projects.
 
@@ -20,7 +20,9 @@ source venv/bin/activate
 # Install dependencies
 pip install -r requirements.txt
 ```
-- Run the server and provide your API key as an input environment variable:
+- Update the `dataset_url` as needed
+- Update the consent file as needed
+- Run the program
 ```
 RESEMBLE_API_KEY=... python main.py
 ```
